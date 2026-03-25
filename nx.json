@@ -3,6 +3,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist"],
       "cache": true
     },
     "dev": {

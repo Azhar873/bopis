@@ -7,9 +7,9 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "webpack --mode production",
+        "command": "webpack --mode production --config ../../webpack.config.js",
         "env": {
-          "NODE_OPTIONS": "--max-old-space-size=12288"
+          "NODE_OPTIONS": "--max-old-space-size=4096"
         }
       },
       "dependsOn": [
@@ -27,11 +27,11 @@
       "options": {
         "commands": [
           "rimraf dist/",
-          "webpack --mode production"
+          "webpack --mode production --config ../../webpack.config.js"
         ],
         "env": {
           "PRERELEASE": "prerelease",
-          "NODE_OPTIONS": "--max-old-space-size=12288"
+          "NODE_OPTIONS": "--max-old-space-size=4096"
         },
         "parallel": false
       },
