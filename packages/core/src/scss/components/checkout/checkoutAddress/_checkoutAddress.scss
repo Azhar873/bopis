@@ -1,0 +1,22 @@
+// =============================================================================
+// CHECKOUT ADDRESS (Component)
+//
+// 1. Custom elements take components out of the the document flow; even though
+// it contains a form-field, have to reset the flex and display property to get
+// layout
+// =============================================================================
+
+.form-addressState {
+    display: block; // 1
+    flex: 1; // 1
+}
+
+.shipping-address {
+    .address-line {
+        margin-bottom: 0;
+    }
+}
+
+.no-addresses-warning {
+    padding: spacing("base") 0 spacing("double") 0;
+}
