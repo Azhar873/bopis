@@ -1,8 +1,7 @@
 {
   "version": 2,
-  "framework": null,
-  "buildCommand": "echo '--- Build Started ---'; npm run build; echo '--- Build Finished ---'; ls -d dist || ls -d build || find . -maxdepth 4 -name dist || find . -maxdepth 4 -name build || (mkdir dist && touch dist/empty.txt); ls -la dist || ls -la build",
-  "outputDirectory": "dist",
+  "buildCommand": "npm run build",
+  "outputDirectory": "packages/core/dist",
   "headers": [
     {
       "source": "/(.*)",
