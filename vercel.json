@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": null,
-  "buildCommand": "npx nx run core:build --skip-nx-cache && ls -d dist",
+  "buildCommand": "npx nx run core:build --skip-nx-cache && (ls -d dist || find . -name dist -type d)",
   "outputDirectory": "dist",
   "headers": [
     {
