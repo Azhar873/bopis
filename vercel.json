@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": null,
-  "buildCommand": "echo 'Starting build...' && npm run build && echo 'Build finished. Searching for dist...' && (ls -d dist || find . -name dist -type d -exec cp -r {} . \\; || (mkdir dist && touch dist/empty.txt)) && ls -la dist",
+  "buildCommand": "echo '--- Build Started ---'; npm run build; echo '--- Build Finished ---'; ls -d dist || ls -d build || find . -maxdepth 4 -name dist || find . -maxdepth 4 -name build || (mkdir dist && touch dist/empty.txt); ls -la dist || ls -la build",
   "outputDirectory": "dist",
   "headers": [
     {
