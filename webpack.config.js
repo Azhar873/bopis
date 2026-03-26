@@ -132,7 +132,7 @@ function appConfig(options, argv) {
             plugins: [
                 new SubresourceIntegrityPlugin({
                     hashFuncNames: ['sha256'],
-                    enabled: isProduction,
+                    enabled: false, // Disabled: Railway serving pipeline causes SRI hash mismatches
                 }),
                 new StyleLintPlugin({
                     fix: !isProduction,
@@ -153,7 +153,7 @@ function appConfig(options, argv) {
                     entrypoints: true,
                     transform: (assets) => transformManifest(assets, appVersion),
                     output: `manifest-app-${appVersion}.json`,
-                    integrity: isProduction,
+                    integrity: false, // Disabled: matches SRI plugin being disabled
                     done: (manifest, { compilation }) => {
                         if (compilation.errors.length) {
                             // eslint-disable-next-line no-console
@@ -305,7 +305,7 @@ function loaderConfig(options, argv) {
             plugins: [
                 new SubresourceIntegrityPlugin({
                     hashFuncNames: ['sha256'],
-                    enabled: isProduction,
+                    enabled: false, // Disabled: Railway serving pipeline causes SRI hash mismatches
                 }),
                 new AsyncHookPlugin({
                     onRun({ compiler, done }) {
@@ -359,7 +359,7 @@ function loaderConfig(options, argv) {
                     entrypoints: true,
                     transform: (assets) => transformManifest(assets, appVersion),
                     output: `manifest-loader-${appVersion}.json`,
-                    integrity: isProduction,
+                    integrity: false, // Disabled: matches SRI plugin being disabled
                     done(_, { compilation: { errors = [] } }) {
                         if (errors.length) {
                             return;
