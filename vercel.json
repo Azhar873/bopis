@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  "framework": null,
+  "buildCommand": "npm run build && ls -d dist",
   "outputDirectory": "dist",
   "headers": [
     {
