@@ -9,11 +9,19 @@ let nextVersion;
 function getNextVersion() {
     if (!nextVersion) {
         nextVersion = new Promise((resolve, reject) => {
-            if (argv.releaseAs) {
-                return resolve(semver.clean(argv.releaseAs));
+            const fs = require('fs');
+            const path = require('path');
+
+            if (!fs.existsSync(path.join(__dirname, '../../.git'))) {
+                return resolve(packageJson.version);
             }
 
+            const timeout = setTimeout(() => {
+                resolve(packageJson.version);
+            }, 10000); // 10 second timeout
+
             conventionalRecommendedBump({ preset: 'angular' }, (err, release) => {
+                clearTimeout(timeout);
                 const prerelease = process.env.PRERELEASE;
 
                 if (err) {

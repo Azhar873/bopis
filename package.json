@@ -9,8 +9,8 @@
     "npm": "10"
   },
   "scripts": {
-    "nx:build": "node --max-old-space-size=4096 node_modules/nx/bin/nx.js run core:build",
-    "nx:prerelease-build": "node --max-old-space-size=4096 node_modules/nx/bin/nx.js run core:prerelease-build",
+    "nx:build": "node --max-old-space-size=3072 node_modules/nx/bin/nx.js run core:build",
+    "nx:prerelease-build": "node --max-old-space-size=3072 node_modules/nx/bin/nx.js run core:prerelease-build",
     "nx:dev": "nx run core:dev",
     "preinstall": "npx check-node-version --package",
     "prebuild": "rimraf dist && rimraf packages/test-framework/report",
